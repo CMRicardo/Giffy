@@ -5,6 +5,9 @@
 	border-radius: 0.5rem;
 	max-width: 20rem;
 }
+.gif:focus {
+	outline: white solid 3px;
+}
 
 .gif img {
 	width: 100%;

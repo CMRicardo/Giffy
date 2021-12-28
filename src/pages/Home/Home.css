@@ -1,0 +1,20 @@
+.popular-gifs {
+	display: grid;
+	place-items: center;
+	gap: 0.5em;
+}
+.search-bar {
+	font-family: sans-serif;
+	font-size: 1.2em;
+	padding: 0.5rem 1rem;
+	text-align: center;
+	border-radius: 0.5em;
+	border: none;
+	transition: ease all 0.5s;
+}
+.search-bar:focus {
+	outline: blueviolet solid 3px;
+}
+form {
+	margin-bottom: 1rem;
+}
