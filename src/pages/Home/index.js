@@ -1,20 +1,19 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'wouter'
-import { ListOfGifs } from '../../components/ListOfGifs'
+import { useLocation } from 'wouter'
+import { ListOfGifs } from 'components/ListOfGifs'
+import LazyTrending from 'components/TrendingSearches'
 
-import './Home.css'
-
-const TRENDING_GIFS = ['Pandas', 'Avengers', 'DBZ', 'Rick and Morty']
+import 'pages/Home/Home.css'
 
 export const Home = () => {
 	const [keyword, setKeyword] = useState('')
 	const [location, setLocation] = useLocation()
 
-	const handleSubmit = (event) => {
+	const handleSubmit = event => {
 		event.preventDefault()
 		setLocation(`/search/${keyword}`)
 	}
-	const handleChange = (event) => {
+	const handleChange = event => {
 		setKeyword(event.target.value)
 	}
 
@@ -29,15 +28,10 @@ export const Home = () => {
 					value={keyword}
 				/>
 			</form>
-			<div className='popular-gifs'>
-				<h3>Popular Gifs</h3>
-				{TRENDING_GIFS.map((trend) => (
-					<Link to={`/search/${trend}`} key={trend}>
-						Gifs de {trend}
-					</Link>
-				))}
+			<div className='home-container'>
+				<ListOfGifs />
+				<LazyTrending className='trends' />
 			</div>
-			<ListOfGifs />
 		</>
 	)
 }
