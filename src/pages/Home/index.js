@@ -5,7 +5,7 @@ import LazyTrending from 'components/TrendingSearches'
 
 import 'pages/Home/Home.css'
 
-export const Home = () => {
+const Home = () => {
 	const [keyword, setKeyword] = useState('')
 	const [location, setLocation] = useLocation()
 
@@ -27,7 +27,9 @@ export const Home = () => {
 					className='search-bar'
 					value={keyword}
 				/>
+				<input className='search-button' type='submit' value='Search' />
 			</form>
+			<h2>Last search</h2>
 			<div className='home-container'>
 				<ListOfGifs />
 				<LazyTrending className='trends' />
@@ -35,3 +37,4 @@ export const Home = () => {
 		</>
 	)
 }
+export default Home
