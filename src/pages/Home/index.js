@@ -1,34 +1,25 @@
-import React, { useState } from 'react'
+import React, { useCallback } from 'react'
 import { useLocation } from 'wouter'
 import { ListOfGifs } from 'components/ListOfGifs'
+import SearchForm from 'components/SearchForm/index'
 import LazyTrending from 'components/TrendingSearches'
 
 import 'pages/Home/Home.css'
 
 const Home = () => {
-	const [keyword, setKeyword] = useState('')
+	//eslint-disable-next-line
 	const [location, setLocation] = useLocation()
 
-	const handleSubmit = event => {
-		event.preventDefault()
-		setLocation(`/search/${keyword}`)
-	}
-	const handleChange = event => {
-		setKeyword(event.target.value)
-	}
+	const handleSubmit = useCallback(
+		({ keyword }) => {
+			setLocation(`search/${keyword}`)
+		},
+		[setLocation]
+	)
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
-				<input
-					onChange={handleChange}
-					placeholder='Search gifs here'
-					type='text'
-					className='search-bar'
-					value={keyword}
-				/>
-				<input className='search-button' type='submit' value='Search' />
-			</form>
+			<SearchForm onSubmit={handleSubmit} />
 			<h2>Last search</h2>
 			<div className='home-container'>
 				<ListOfGifs />

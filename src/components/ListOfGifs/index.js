@@ -16,6 +16,7 @@ export const ListOfGifs = ({ params = 'Random' }) => {
 		once: false,
 	})
 
+	//eslint-disable-next-line
 	const debounceHandleNextPage = useCallback(
 		debounce(() => setPage(prevPage => prevPage + 1), 200),
 		[setPage]
