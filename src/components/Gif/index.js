@@ -4,7 +4,7 @@ import './Gif.css'
 
 function Gif({ title, id, url }) {
 	return (
-		<Link to={`/${id}`} className='gif'>
+		<Link to={`/gif/${id}`} className='gif'>
 			<h3>{title}</h3>
 			<img loading='lazy' src={url} alt={title} />
 		</Link>

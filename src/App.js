@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
 import './App.css'
-import { ListOfGifs } from './components/ListOfGifs/index'
 import { Link, Route } from 'wouter'
 import { Details } from './pages/Details'
 import { GifsContextProvider } from './context/GifsContext'
+import SearchResults from 'pages/SearchResults'
 
 const HomePage = React.lazy(() => import('./pages/Home'))
 
@@ -17,8 +17,9 @@ const App = () => {
 					</Link>
 					<GifsContextProvider>
 						<Route path='/' component={HomePage} />
-						<Route path='/search/:keyword' component={ListOfGifs} />
-						<Route path='/:id' component={Details} />
+						<Route path='/search/:keyword' component={SearchResults} />
+						<Route path='/gif/:id' component={Details} />
+						<Route path='/404' component={() => <h2>An error ocurred 💥</h2>} />
 					</GifsContextProvider>
 				</section>
 			</Suspense>
