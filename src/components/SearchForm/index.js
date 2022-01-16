@@ -11,6 +11,7 @@ const SearchForm = ({ initialKeyword = '', initialRating = RATINGS[0] }) => {
 		initialRating,
 	})
 
+	// eslint-disable-next-line
 	const [location, setLocation] = useLocation()
 
 	const handleSubmit = event => {
