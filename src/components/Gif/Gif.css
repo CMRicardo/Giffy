@@ -1,25 +1,38 @@
 .gif {
-	background: rgb(160, 62, 251);
-	color: #282c34;
-	padding: 0.5rem;
-	border-radius: 0.5rem;
-	display: grid;
-	place-items: center;
-	max-width: 20rem;
-	min-width: 200px;
+	color: #fff;
+	position: relative;
+}
+.gif:hover {
+	outline: white solid 3px;
+}
+.gif:hover > p {
+	background: #fff;
+	color: #333;
 }
 .gif:focus {
 	outline: white solid 3px;
 }
+.gif:focus > p {
+	background: #fff;
+	color: #333;
+}
 
 .gif img {
-	width: 100%;
-	max-height: 10rem;
-	object-fit: contain;
+	height: 300px;
+	width: 300px;
+	object-fit: cover;
 	margin: 0;
+	padding: 0;
 }
-h3 {
-	font-size: 1.2rem;
-	line-height: 1;
-	margin-bottom: 0.2rem;
+
+.gif p {
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+	background: rgba(0, 0, 0, 0.5);
+	text-align: left;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 0.1rem;
 }

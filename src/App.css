@@ -18,16 +18,14 @@
 a {
 	text-decoration: none;
 	color: white;
-	transition: ease all 0.5s;
-}
-a:hover {
-	color: blueviolet;
+	transition: ease color 0.5s;
 }
 
 .title {
 	color: blueviolet;
 	font-size: 3rem;
 	cursor: pointer;
+	font-family: 'Angkor', cursive;
 }
 body {
 	accent-color: blueviolet;
@@ -40,4 +38,7 @@ button {
 	padding: 0.5rem 1rem;
 	cursor: pointer;
 	border-radius: 0.5rem;
+}
+img {
+	display: block;
 }
