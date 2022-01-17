@@ -3,6 +3,7 @@ import { useReducer } from 'react'
 const ACTIONS = {
 	UPDATE_KEYWORD: 'update_keyword',
 	UPDATE_RATING: 'update_rating',
+	UPDATE_LANG: 'update_lang',
 }
 
 const ACTIONS_REDUCERS = {
@@ -15,6 +16,10 @@ const ACTIONS_REDUCERS = {
 		...state,
 		rating: action.payload,
 	}),
+	[ACTIONS.UPDATE_LANG]: (state, action) => ({
+		...state,
+		lang: action.payload,
+	}),
 }
 
 const REDUCER = (state, action) => {
@@ -25,22 +30,26 @@ const REDUCER = (state, action) => {
 export default function useForm({
 	initialKeyword = '',
 	initialRating = 'g',
+	initialLang = 'en',
 } = {}) {
 	const [state, dispatch] = useReducer(REDUCER, {
 		keyword: decodeURIComponent(initialKeyword),
 		rating: initialRating,
 		times: 0,
+		lang: initialLang,
 	})
 
-	const { keyword, rating, times } = state
+	const { keyword, rating, times, lang } = state
 
 	return {
 		keyword,
 		rating,
 		times,
+		lang,
 		updateKeyword: keyword =>
 			dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: keyword }),
 		updateRating: rating =>
 			dispatch({ type: ACTIONS.UPDATE_RATING, payload: rating }),
+		updateLang: lang => dispatch({ type: ACTIONS.UPDATE_LANG, payload: lang }),
 	}
 }

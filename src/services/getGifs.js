@@ -2,13 +2,14 @@ import { API_KEY, API_URL } from './settings'
 
 export default function getGifs({
 	limit = '15',
-	keyword = 'morty',
+	keyword = 'Random',
 	page = 0,
 	rating = 'g',
+	lang = 'en',
 } = {}) {
 	let apiURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${
 		page * limit
-	}&rating=${rating}&lang=en
+	}&rating=${rating}&lang=${lang}
 `
 
 	return fetch(apiURL)
